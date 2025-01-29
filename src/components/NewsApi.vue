@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import { fetchNews } from '@/utils/fetchNews';
 
 export default {
   data() {
@@ -24,17 +24,9 @@ export default {
     };
   },
   mounted() {
-    axios
-      .get(
-        "https://newsapi.org/v2/everything?q=tesla&from=2024-12-29&sortBy=publishedAt&apiKey=093c01deb6b54ae9becbbc755e2f8e48"
-      )
-      .then((response) => {
-        this.articles = response.data;
-        console.log(this.articles)
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
+    fetchNews((data) => {
+      this.articles = data;
+    });
   },
 };
 </script>
