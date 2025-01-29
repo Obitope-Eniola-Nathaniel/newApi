@@ -3,10 +3,3 @@ module.exports = defineConfig({
   transpileDependencies: true
 })
 
-module.exports = {
-  devServer: {
-    headers: {
-      "Content-Security-Policy": "script-src 'self' 'nonce-XYZ123';",
-    },
-  },
-};
